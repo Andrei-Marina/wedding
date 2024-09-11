@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import "./App.css";
 import {
   createTheme,
   ThemeProvider,
   Box,
   Grid2,
-  Typography,
   useMediaQuery,
 } from "@mui/material";
 import { Content } from "./utils/models";
