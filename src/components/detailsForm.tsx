@@ -18,58 +18,58 @@ interface DetailsFormProps {
 const CustomTextField = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "#947F6E", // Default border color
+      borderColor: "#947F6E",
     },
     "&:hover fieldset": {
-      borderColor: "#947F6E", // Border color on hover
+      borderColor: "#947F6E",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#947F6E", // Border color when focused
+      borderColor: "#947F6E",
     },
   },
   "& .MuiInputLabel-root": {
-    color: "#947F6E", // Default label color
+    color: "#947F6E",
   },
   "& .MuiInputLabel-root.Mui-focused": {
-    color: "#947F6E", // Label color when focused
+    color: "#947F6E",
   },
   "& .MuiInputBase-root": {
     "&:after": {
-      borderColor: "#947F6E", // Border color on hover
+      borderColor: "#947F6E",
     },
     "&:hover": {
-      borderColor: "#947F6E", // Border color on hover
+      borderColor: "#947F6E",
     },
   },
 }));
 
 const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
-  color: "#947F6E", // Default color
+  color: "#947F6E",
   "&.Mui-checked": {
-    color: "#947F6E", // Color when checked
+    color: "#947F6E",
   },
   "&.MuiCheckbox-root:hover": {
-    backgroundColor: "rgba(148, 127, 110, 0.1)", // Optional: light green background on hover
+    backgroundColor: "rgba(148, 127, 110, 0.1)",
   },
   "& .MuiFormControlLabel-root": {},
 }));
 
 const CustomRadio = styled(Radio)(({ theme }) => ({
-  color: "#947F6E", // Default color of the radio button icon
+  color: "#947F6E",
   "&.Mui-checked": {
-    color: "#947F6E", // Color of the icon when selected
+    color: "#947F6E",
   },
   "&:hover": {
-    backgroundColor: "rgba(148, 127, 110, 0.1)", // Optional: light green background on hover
+    backgroundColor: "rgba(148, 127, 110, 0.1)",
   },
 }));
 
 const CustomFormControlLabel = styled(FormControlLabel)(({ theme }) => ({
   "& .MuiFormControlLabel-label": {
-    color: "#947F6E", // Label color
+    color: "#947F6E",
   },
   "& .Mui-checked + .MuiFormControlLabel-label": {
-    color: "#947F6E", // Change label color when radio button is selected
+    color: "#947F6E",
   },
 }));
 
