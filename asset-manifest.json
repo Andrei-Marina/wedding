@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/wedding/static/css/main.1bda0938.css",
-    "main.js": "/wedding/static/js/main.e0acc967.js",
+    "main.js": "/wedding/static/js/main.ee4bd0b4.js",
     "static/media/allegrettoScriptOne.ttf": "/wedding/static/media/allegrettoScriptOne.30e18443cb980fcf2aa7.ttf",
     "index.html": "/wedding/index.html",
     "main.1bda0938.css.map": "/wedding/static/css/main.1bda0938.css.map",
-    "main.e0acc967.js.map": "/wedding/static/js/main.e0acc967.js.map"
+    "main.ee4bd0b4.js.map": "/wedding/static/js/main.ee4bd0b4.js.map"
   },
   "entrypoints": [
     "static/css/main.1bda0938.css",
-    "static/js/main.e0acc967.js"
+    "static/js/main.ee4bd0b4.js"
   ]
 }
