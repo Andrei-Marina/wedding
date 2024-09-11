@@ -133,7 +133,7 @@ function App() {
               {!isMd ? (
                 <Grid2 size={{ md: 12 }}>
                   <CountdownTimer
-                    targetDate={new Date(2025, 7, 24, 18, 0, 0)}
+                    targetDate={new Date(2025, 7, 24, 10)}
                   />
                 </Grid2>
               ) : (

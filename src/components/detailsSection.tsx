@@ -136,11 +136,13 @@ const DetailsSection = (props: DetailsSectionProps) => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    try {
-      await addDoc(collection(db, "guests"), guest);
-    } catch (err) {}
+    if (guest.guestName && guest.presense) {
+      try {
+        await addDoc(collection(db, "guests"), guest);
+      } catch (err) {}
 
-    setGuest(defaultGuest);
+      setGuest(defaultGuest);
+    }
   };
 
   return (
@@ -275,6 +277,7 @@ const DetailsSection = (props: DetailsSectionProps) => {
               type="submit"
               variant="contained"
               color="primary"
+              disabled={!guest.guestName || !guest.presense}
             >
               {props.content.detailsSection.submitButton}
             </Button>
