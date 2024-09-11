@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Allegretto Script One";
+  src: url("/public/fonts/allegrettoScriptOne.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+html {
+  scrollbar-width: none;
+}

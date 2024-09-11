@@ -1,0 +1,35 @@
+/* Container for the video background */
+.video-container {
+  position: fixed; /* Fix the position relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Hide any overflow from the video itself */
+  z-index: -1; /* Place it behind other content */
+}
+
+/* Style for the video element */
+.background-video {
+  position: absolute; /* Absolute position inside the container */
+  top: 0; /* Stick to the top */
+  left: 0; /* Stick to the left */
+  object-fit: cover; /* Cover the entire container */
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* The scrollbar container */
+::-webkit-scrollbar {
+  width: 0px; /* Width of the scrollbar */
+}
