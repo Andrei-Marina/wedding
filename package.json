@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://andrewwerd.github.io/wedding/",
+  "homepage": "https://andrei-marina.github.io/wedding/",
   "eslintConfig": {
     "extends": [
       "react-app",
