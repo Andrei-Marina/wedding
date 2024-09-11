@@ -7,6 +7,7 @@ import {
   Box,
   Grid2,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { Content } from "./utils/models";
 import { Contents } from "./utils/constants";
@@ -16,7 +17,9 @@ import {
   DetailsSection,
   WelcomeSection,
   TimingSection,
+  LocationSection,
 } from "./components";
+import CountdownTimer from "./components/countdownTimer";
 
 const theme = createTheme({
   typography: {
@@ -33,6 +36,8 @@ function App() {
   const [content, setContent] = useState<Content>();
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(true);
 
+  const isMd = useMediaQuery("(max-width:960px)");
+
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({
@@ -47,19 +52,6 @@ function App() {
     // Cleanup the event listener when component unmounts
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const center = {
-    lat: 46.88361358642578,
-    lng: 28.752653121948242,
-  };
-  const containerStyle = {
-    width: "100%",
-    height: "400px",
-  };
-  const markerPosition: google.maps.LatLngLiteral = {
-    lat: 46.88361358642578,
-    lng: 28.752653121948242,
-  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -113,7 +105,14 @@ function App() {
                 sx={{ bgcolor: "rgba(255,255,255,0.4)", padding: 5 }}
               >
                 <TimingSection content={content} />
-              </Grid2>
+              </Grid2>{" "}
+              {isMd ? (
+                <Grid2 size={{ xs: 12, md: 12 }}>
+                  <CountdownTimer targetDate={new Date("2025-07-24")} />
+                </Grid2>
+              ) : (
+                <></>
+              )}
               <Grid2
                 height={windowSize.height}
                 size={{ xs: 12, md: 3 }}
@@ -126,27 +125,20 @@ function App() {
                   padding: 5,
                 }}
               >
-                <Typography fontSize={36} fontWeight={300}>
-                  {content.locationSection.title}
-                </Typography>
-                <Box height={"90%"} width={"100%"}>
-                  <LoadScript
-                    googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
-                    id="google-maps-script"
-                  >
-                    <GoogleMap
-                      mapContainerStyle={containerStyle}
-                      center={center}
-                      zoom={14}
-                    >
-                      <Marker
-                        position={markerPosition}
-                        title="Complex Turistic Costesti"
-                      />
-                    </GoogleMap>
-                  </LoadScript>
-                </Box>
+                <LocationSection
+                  apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+                  content={content}
+                  lat={46.88361358642578}
+                  lng={28.752653121948242}
+                />
               </Grid2>
+              {!isMd ? (
+                <Grid2 size={{ xs: 12, md: 12 }}>
+                  <CountdownTimer targetDate={new Date("2025-07-24")} />
+                </Grid2>
+              ) : (
+                <></>
+              )}
               <Grid2
                 height={windowSize.height}
                 size={{ xs: 12, md: 12 }}
@@ -159,12 +151,7 @@ function App() {
                   padding: 5,
                 }}
               >
-                <Typography fontSize={36} fontWeight={300}>
-                  {content.detailsSection.title}
-                </Typography>
-                <Box height={"90%"} width={"100%"}>
-                  <DetailsSection content={content} />
-                </Box>
+                <DetailsSection content={content} />
               </Grid2>
             </Grid2>
           </Box>

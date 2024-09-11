@@ -16,6 +16,7 @@ const CustomCalendarHeader = () => {
 };
 
 const TimingSection = (props: TimingSectionProps) => {
+  const date = "2025-07-24";
   return (
     <>
       <Typography fontSize={36} fontWeight={300}>
@@ -32,7 +33,7 @@ const TimingSection = (props: TimingSectionProps) => {
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateCalendar
             disabled
-            defaultValue={dayjs("2025-07-25")}
+            defaultValue={dayjs(date)}
             slots={{ calendarHeader: CustomCalendarHeader }}
             sx={{
               "& .Mui-selected": {
@@ -41,12 +42,10 @@ const TimingSection = (props: TimingSectionProps) => {
               },
               "& .Mui-disabled:not(.Mui-selected)": {
                 color: "black !important",
-                // fontSize: "36px !important",
               },
             }}
           />
         </LocalizationProvider>
-        <CountdownTimer targetDate={new Date("2025-07-25")} />
       </Box>
     </>
   );

@@ -1,4 +1,5 @@
 import {
+  Box,
   Checkbox,
   FormControl,
   FormControlLabel,
@@ -7,6 +8,7 @@ import {
   Radio,
   RadioGroup,
   TextField,
+  Typography,
 } from "@mui/material";
 import { Content } from "../utils/models";
 import { styled } from "@mui/material/styles";
@@ -77,62 +79,69 @@ const DetailsSection = (props: DetailsSectionProps) => {
   const [hasPartner, setHasPartner] = useState(false);
 
   return (
-    <FormGroup sx={{ width: "100%" }}>
-      <CustomTextField
-        id="standard-basic"
-        label={props.content.detailsSection.nameFormLabel}
-        variant="standard"
-        fullWidth
-      />
-      <CustomFormControlLabel
-        sx={{
-          marginTop: 2,
-        }}
-        required={false}
-        control={
-          <CustomCheckbox
+    <>
+      <Typography fontSize={36} fontWeight={300}>
+        {props.content.detailsSection.title}
+      </Typography>
+      <Box height={"90%"} width={"100%"}>
+        <FormGroup sx={{ width: "100%" }}>
+          <CustomTextField
+            id="standard-basic"
+            label={props.content.detailsSection.nameFormLabel}
+            variant="standard"
+            fullWidth
+          />
+          <CustomFormControlLabel
+            sx={{
+              marginTop: 2,
+            }}
             required={false}
-            checked={hasPartner}
-            onChange={(event) => setHasPartner(event.target.checked)}
+            control={
+              <CustomCheckbox
+                required={false}
+                checked={hasPartner}
+                onChange={(event) => setHasPartner(event.target.checked)}
+              />
+            }
+            label={props.content.detailsSection.partnerCheckboxLabel}
           />
-        }
-        label={props.content.detailsSection.partnerCheckboxLabel}
-      />
-      <CustomTextField
-        id="standard-basic"
-        label={props.content.detailsSection.partnerFormLabel}
-        variant="standard"
-        fullWidth
-        disabled={!hasPartner}
-      />
-      <FormControl sx={{ alignItems: "flex-start", marginTop: 3 }}>
-        <FormLabel id="presence-form-label" sx={{ color: "#947F6E" }}>
-          {props.content.detailsSection.presenceFormLabel}
-        </FormLabel>
-        <RadioGroup
-          aria-labelledby="presence-radio-buttons-group"
-          name="presence-radio-buttons-group"
-          // value={value}
-          // onChange={handleChange}
-        >
-          <CustomFormControlLabel
-            value={1}
-            control={<CustomRadio />}
-            label={props.content.detailsSection.presenceFormValue1}
+          <CustomTextField
+            id="standard-basic"
+            label={props.content.detailsSection.partnerFormLabel}
+            variant="standard"
+            fullWidth
+            disabled={!hasPartner}
           />
-          <CustomFormControlLabel
-            value={2}
-            control={<CustomRadio />}
-            label={props.content.detailsSection.presenceFormValue2}
-          />
-          <CustomFormControlLabel
-            value={3}
-            control={<CustomRadio />}
-            label={props.content.detailsSection.presenceFormValue3}
-          />
-        </RadioGroup>
-      </FormControl>
-    </FormGroup>
+          <FormControl sx={{ alignItems: "flex-start", marginTop: 3 }}>
+            <FormLabel id="presence-form-label" sx={{ color: "#947F6E" }}>
+              {props.content.detailsSection.presenceFormLabel}
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="presence-radio-buttons-group"
+              name="presence-radio-buttons-group"
+              // value={value}
+              // onChange={handleChange}
+            >
+              <CustomFormControlLabel
+                value={1}
+                control={<CustomRadio />}
+                label={props.content.detailsSection.presenceFormValue1}
+              />
+              <CustomFormControlLabel
+                value={2}
+                control={<CustomRadio />}
+                label={props.content.detailsSection.presenceFormValue2}
+              />
+              <CustomFormControlLabel
+                value={3}
+                control={<CustomRadio />}
+                label={props.content.detailsSection.presenceFormValue3}
+              />
+            </RadioGroup>
+          </FormControl>
+        </FormGroup>
+      </Box>
+    </>
   );
 };
 
