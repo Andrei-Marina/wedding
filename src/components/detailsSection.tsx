@@ -271,7 +271,7 @@ const DetailsSection = (props: DetailsSectionProps) => {
               </FormGroup>
             </FormControl>
             <Button
-              sx={{ marginTop: 5 }}
+              sx={{ marginTop: 5, bgcolor: "#947F6E" }}
               type="submit"
               variant="contained"
               color="primary"
