@@ -1,5 +1,4 @@
 import {
-  Box,
   Checkbox,
   FormControl,
   FormControlLabel,
@@ -8,7 +7,6 @@ import {
   Radio,
   RadioGroup,
   TextField,
-  Typography,
 } from "@mui/material";
 import { Content } from "../utils/models";
 import { styled } from "@mui/material/styles";
