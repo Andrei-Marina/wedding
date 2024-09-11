@@ -12,7 +12,7 @@ import { Content } from "../utils/models";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
 
-interface DetailsFormProps {
+interface DetailsSectionProps {
   content: Content;
 }
 const CustomTextField = styled(TextField)(({ theme }) => ({
@@ -73,7 +73,7 @@ const CustomFormControlLabel = styled(FormControlLabel)(({ theme }) => ({
   },
 }));
 
-const DetailsForm = (props: DetailsFormProps) => {
+const DetailsSection = (props: DetailsSectionProps) => {
   const [hasPartner, setHasPartner] = useState(false);
 
   return (
@@ -136,4 +136,4 @@ const DetailsForm = (props: DetailsFormProps) => {
   );
 };
 
-export default DetailsForm;
+export default DetailsSection;

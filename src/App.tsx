@@ -10,8 +10,13 @@ import {
 } from "@mui/material";
 import { Content } from "./utils/models";
 import { Contents } from "./utils/constants";
-import { LanguageDialog } from "./components";
-import DetailsForm from "./components/detailsForm";
+import {
+  LanguageDialog,
+  CoverSection,
+  DetailsSection,
+  WelcomeSection,
+  TimingSection,
+} from "./components";
 
 const theme = createTheme({
   typography: {
@@ -86,34 +91,7 @@ function App() {
                   alignItems: "center",
                 }}
               >
-                <div></div>
-                <Box
-                  sx={{
-                    fontSize: "84px",
-                    fontFamily: "Allegretto Script One, cursive",
-                  }}
-                >
-                  <p>
-                    {content.coverSection.fianceName}
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </p>
-                  <p>&</p>
-                  <p style={{ lineHeight: "140px" }}>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {content.coverSection.fianceeName}
-                  </p>
-                </Box>
-                <Box>
-                  <Typography fontSize={36} fontWeight={100}>
-                    {content.coverSection.month}
-                  </Typography>
-                  <Typography fontSize={72} fontWeight={200}>
-                    24
-                  </Typography>
-                  <Typography fontSize={36} fontWeight={100}>
-                    2025
-                  </Typography>
-                </Box>
+                <CoverSection content={content} />
               </Grid2>
               <Grid2
                 height={windowSize.height}
@@ -127,22 +105,14 @@ function App() {
                   padding: 5,
                 }}
               >
-                <Typography fontSize={36} fontWeight={300}>
-                  {content.welcomeSection.title}
-                </Typography>
-                <Box>
-                  <Typography>{content.welcomeSection.content}</Typography>
-                </Box>
-                <Box></Box>
+                <WelcomeSection content={content} />
               </Grid2>
               <Grid2
                 height={windowSize.height}
-                size={{ xs: 12, md: 3 }}
+                size={{ xs: 12, md: 6 }}
                 sx={{ bgcolor: "rgba(255,255,255,0.4)", padding: 5 }}
               >
-                <Typography fontSize={36} fontWeight={300}>
-                  {content.timingSection.title}
-                </Typography>
+                <TimingSection content={content} />
               </Grid2>
               <Grid2
                 height={windowSize.height}
@@ -159,26 +129,27 @@ function App() {
                 <Typography fontSize={36} fontWeight={300}>
                   {content.locationSection.title}
                 </Typography>
-                <LoadScript
-                  googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
-                  id="google-maps-script"
-                >
-                  <GoogleMap
-                    mapContainerStyle={containerStyle}
-                    center={center}
-                    zoom={14}
+                <Box height={"90%"} width={"100%"}>
+                  <LoadScript
+                    googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+                    id="google-maps-script"
                   >
-                    <Marker
-                      position={markerPosition}
-                      title="Complex Turistic Costesti"
-                    />
-                  </GoogleMap>
-                </LoadScript>
-                <div></div>
+                    <GoogleMap
+                      mapContainerStyle={containerStyle}
+                      center={center}
+                      zoom={14}
+                    >
+                      <Marker
+                        position={markerPosition}
+                        title="Complex Turistic Costesti"
+                      />
+                    </GoogleMap>
+                  </LoadScript>
+                </Box>
               </Grid2>
               <Grid2
                 height={windowSize.height}
-                size={{ xs: 12, md: 3 }}
+                size={{ xs: 12, md: 12 }}
                 sx={{
                   bgcolor: "rgba(255,255,255,0.4)",
                   display: "flex",
@@ -191,8 +162,9 @@ function App() {
                 <Typography fontSize={36} fontWeight={300}>
                   {content.detailsSection.title}
                 </Typography>
-                <DetailsForm content={content} />
-                <div></div>
+                <Box height={"90%"} width={"100%"}>
+                  <DetailsSection content={content} />
+                </Box>
               </Grid2>
             </Grid2>
           </Box>
