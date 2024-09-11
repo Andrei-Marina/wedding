@@ -29,6 +29,7 @@ interface Guest {
   guestName: string;
   partnerName: string;
   presense: number;
+  preferences: number[];
 }
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
@@ -90,12 +91,15 @@ const CustomFormControlLabel = styled(FormControlLabel)(({ theme }) => ({
 }));
 
 const DetailsSection = (props: DetailsSectionProps) => {
-  const [hasPartner, setHasPartner] = useState(false);
-  const [guest, setGuest] = useState<Guest>({
+  const defaultGuest: Guest = {
     guestName: "",
     partnerName: "",
     presense: 0,
-  });
+    preferences: [],
+  };
+
+  const [hasPartner, setHasPartner] = useState(false);
+  const [guest, setGuest] = useState<Guest>(defaultGuest);
 
   useEffect(() => {
     const signInAutomatically = async () => {
@@ -111,11 +115,32 @@ const DetailsSection = (props: DetailsSectionProps) => {
     signInAutomatically();
   }, [props.apiPassword, props.apiUsername]);
 
+  const handlePreferencesChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    id: number
+  ) => {
+    var preferences = guest.preferences;
+    if (event.target.checked && guest.preferences.length < 2) {
+      if (!guest.preferences.includes(id)) {
+        setGuest({ ...guest, preferences: [...preferences, id] });
+      }
+    } else {
+      if (guest.preferences.includes(id)) {
+        setGuest({
+          ...guest,
+          preferences: preferences.filter((num) => num !== id),
+        });
+      }
+    }
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       await addDoc(collection(db, "guests"), guest);
     } catch (err) {}
+
+    setGuest(defaultGuest);
   };
 
   return (
@@ -135,6 +160,7 @@ const DetailsSection = (props: DetailsSectionProps) => {
                 setGuest({ ...guest, guestName: e.target.value })
               }
               fullWidth
+              autoComplete="off"
             />
             <CustomFormControlLabel
               sx={{
@@ -160,9 +186,13 @@ const DetailsSection = (props: DetailsSectionProps) => {
               onChange={(e) =>
                 setGuest({ ...guest, partnerName: e.target.value })
               }
+              autoComplete="off"
             />
             <FormControl sx={{ alignItems: "flex-start", marginTop: 3 }}>
-              <FormLabel id="presence-form-label" sx={{ color: "#947F6E" }}>
+              <FormLabel
+                id="presence-form-label"
+                sx={{ color: "#947F6E !important" }}
+              >
                 {props.content.detailsSection.presenceFormLabel}
               </FormLabel>
               <RadioGroup
@@ -190,7 +220,62 @@ const DetailsSection = (props: DetailsSectionProps) => {
                 />
               </RadioGroup>
             </FormControl>
-            <Button type="submit" variant="contained" color="primary">
+            <FormControl sx={{ alignItems: "flex-start", marginTop: 3 }}>
+              <FormLabel
+                id="preferences-form-label"
+                sx={{ color: "#947F6E !important" }}
+              >
+                {props.content.detailsSection.preferencesFormLabel}
+              </FormLabel>
+              <FormGroup>
+                <CustomFormControlLabel
+                  control={
+                    <CustomCheckbox
+                      checked={guest.preferences.includes(1)}
+                      onChange={(event) => handlePreferencesChange(event, 1)}
+                      name={props.content.detailsSection.drinksOption1}
+                    />
+                  }
+                  label={props.content.detailsSection.drinksOption1}
+                />
+                <CustomFormControlLabel
+                  control={
+                    <CustomCheckbox
+                      checked={guest.preferences.includes(2)}
+                      onChange={(event) => handlePreferencesChange(event, 2)}
+                      name={props.content.detailsSection.drinksOption1}
+                    />
+                  }
+                  label={props.content.detailsSection.drinksOption2}
+                />
+                <CustomFormControlLabel
+                  control={
+                    <CustomCheckbox
+                      checked={guest.preferences.includes(3)}
+                      onChange={(event) => handlePreferencesChange(event, 3)}
+                      name={props.content.detailsSection.drinksOption3}
+                    />
+                  }
+                  label={props.content.detailsSection.drinksOption3}
+                />
+                <CustomFormControlLabel
+                  control={
+                    <CustomCheckbox
+                      checked={guest.preferences.includes(4)}
+                      onChange={(event) => handlePreferencesChange(event, 4)}
+                      name={props.content.detailsSection.drinksOption4}
+                    />
+                  }
+                  label={props.content.detailsSection.drinksOption4}
+                />
+              </FormGroup>
+            </FormControl>
+            <Button
+              sx={{ marginTop: 5 }}
+              type="submit"
+              variant="contained"
+              color="primary"
+            >
               {props.content.detailsSection.submitButton}
             </Button>
           </FormGroup>

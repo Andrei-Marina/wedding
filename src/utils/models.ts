@@ -23,6 +23,11 @@ export interface Content {
     presenceFormValue1: string;
     presenceFormValue2: string;
     presenceFormValue3: string;
+    preferencesFormLabel: string;
+    drinksOption1: string;
+    drinksOption2: string;
+    drinksOption3: string;
+    drinksOption4: string;
     submitButton: string;
   };
 }
