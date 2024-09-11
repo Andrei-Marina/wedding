@@ -1,25 +1,38 @@
 import { Box, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 interface CountdownTimerProps {
   targetDate: Date;
 }
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
 
 const CountdownTimer = (props: CountdownTimerProps) => {
-  const calculateTimeLeft = () => {
-    const now = new Date();
-    const timeLeft = props.targetDate.getTime() - now.getTime();
-    return {
-      days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      minutes: Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((timeLeft % (1000 * 60)) / 1000),
-    };
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
+    const calculateTimeLeft = (): TimeLeft => {
+      const now = new Date();
+      const timeLeft = props.targetDate.getTime() - now.getTime();
+      return {
+        days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        ),
+        minutes: Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((timeLeft % (1000 * 60)) / 1000),
+      };
+    };
+
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
