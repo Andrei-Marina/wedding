@@ -23,5 +23,6 @@ export interface Content {
     presenceFormValue1: string;
     presenceFormValue2: string;
     presenceFormValue3: string;
+    submitButton: string;
   };
 }

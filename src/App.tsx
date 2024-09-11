@@ -132,7 +132,9 @@ function App() {
               </Grid2>
               {!isMd ? (
                 <Grid2 size={{ md: 12 }}>
-                  <CountdownTimer targetDate={new Date("2025-07-24")} />
+                  <CountdownTimer
+                    targetDate={new Date(2025, 7, 24, 18, 0, 0)}
+                  />
                 </Grid2>
               ) : (
                 <></>
@@ -149,7 +151,11 @@ function App() {
                   padding: 5,
                 }}
               >
-                <DetailsSection content={content} />
+                <DetailsSection
+                  content={content}
+                  apiUsername={process.env.REACT_APP_FIREBASE_API_USERNAME}
+                  apiPassword={process.env.REACT_APP_FIREBASE_API_PASSWORD}
+                />
               </Grid2>
             </Grid2>
           </Box>
@@ -160,7 +166,6 @@ function App() {
       <LanguageDialog
         open={isDialogOpen}
         onClose={(value) => {
-          console.log(value);
           setContent(Contents[value ?? "ru"]);
           setIsDialogOpen(false);
         }}
