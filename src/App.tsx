@@ -16,8 +16,8 @@ import {
   WelcomeSection,
   TimingSection,
   LocationSection,
+  CountdownTimer,
 } from "./components";
-import CountdownTimer from "./components/countdownTimer";
 
 const theme = createTheme({
   typography: {
@@ -103,9 +103,9 @@ function App() {
                 sx={{ bgcolor: "rgba(255,255,255,0.4)", padding: 5 }}
               >
                 <TimingSection content={content} />
-              </Grid2>{" "}
+              </Grid2>
               {isMd ? (
-                <Grid2 size={{ xs: 12, md: 12 }}>
+                <Grid2 size={{ xs: 12 }}>
                   <CountdownTimer targetDate={new Date("2025-07-24")} />
                 </Grid2>
               ) : (
@@ -131,7 +131,7 @@ function App() {
                 />
               </Grid2>
               {!isMd ? (
-                <Grid2 size={{ xs: 12, md: 12 }}>
+                <Grid2 size={{ md: 12 }}>
                   <CountdownTimer targetDate={new Date("2025-07-24")} />
                 </Grid2>
               ) : (
