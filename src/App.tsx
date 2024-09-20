@@ -100,13 +100,16 @@ function App() {
               <Grid2
                 height={windowSize.height}
                 size={{ xs: 12, md: 6 }}
-                sx={{ bgcolor: "rgba(255,255,255,0.4)", padding: 5 }}
+                sx={{ bgcolor: "rgba(255,255,255,0.4)", paddingTop: 5 }}
               >
                 <TimingSection content={content} />
               </Grid2>
               {isMd ? (
                 <Grid2 size={{ xs: 12 }}>
-                  <CountdownTimer targetDate={new Date("2025-07-24")} />
+                  <CountdownTimer
+                    targetDate={new Date("2025-07-24 18:00")}
+                    content={content}
+                  />
                 </Grid2>
               ) : (
                 <></>
@@ -133,7 +136,8 @@ function App() {
               {!isMd ? (
                 <Grid2 size={{ md: 12 }}>
                   <CountdownTimer
-                    targetDate={new Date(2025, 7, 24, 10)}
+                    targetDate={new Date("2025-07-24 18:00")}
+                    content={content}
                   />
                 </Grid2>
               ) : (

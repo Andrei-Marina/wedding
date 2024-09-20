@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
+import { Content } from "../utils/models";
 
 interface CountdownTimerProps {
   targetDate: Date;
+  content: Content;
 }
 interface TimeLeft {
   days: number;
@@ -22,8 +24,9 @@ const CountdownTimer = (props: CountdownTimerProps) => {
   useEffect(() => {
     const calculateTimeLeft = (): TimeLeft => {
       const now = new Date();
-      const timeLeft = props.targetDate.getTime() - now.getTime();
-      console.log(props.targetDate);
+      const timeLeft =
+        props.targetDate.getTime() -
+        now.getTime() 
       if (timeLeft <= 0)
         return {
           days: 0,
@@ -63,7 +66,9 @@ const CountdownTimer = (props: CountdownTimerProps) => {
           justifyContent={" space-between"}
         >
           <Typography fontSize={36}>{timeLeft.days}</Typography>
-          <Typography fontSize={12}>Days</Typography>
+          <Typography fontSize={12}>
+            {props.content.timingSection.daysLabel}
+          </Typography>
         </Box>
         <Box
           height={"100%"}
@@ -72,7 +77,9 @@ const CountdownTimer = (props: CountdownTimerProps) => {
           justifyContent={" space-between"}
         >
           <Typography fontSize={36}>{timeLeft.hours}</Typography>
-          <Typography fontSize={12}>Hours</Typography>
+          <Typography fontSize={12}>
+            {props.content.timingSection.hoursLabel}
+          </Typography>
         </Box>
         <Box
           height={"100%"}
@@ -81,7 +88,9 @@ const CountdownTimer = (props: CountdownTimerProps) => {
           justifyContent={" space-between"}
         >
           <Typography fontSize={36}>{timeLeft.minutes}</Typography>
-          <Typography fontSize={12}>Minutes</Typography>
+          <Typography fontSize={12}>
+            {props.content.timingSection.minutesLabel}
+          </Typography>
         </Box>
         <Box
           height={"100%"}
@@ -90,7 +99,9 @@ const CountdownTimer = (props: CountdownTimerProps) => {
           justifyContent={" space-between"}
         >
           <Typography fontSize={36}>{timeLeft.seconds}</Typography>
-          <Typography fontSize={12}>Seconds</Typography>
+          <Typography fontSize={12}>
+            {props.content.timingSection.secondsLabel}
+          </Typography>
         </Box>
       </Box>
     </>

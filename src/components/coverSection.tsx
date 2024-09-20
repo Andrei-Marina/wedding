@@ -9,21 +9,27 @@ const CoverSection = (props: CoverSectionProps) => {
   return (
     <>
       <div></div>
-      <Box
-        sx={{
-          fontSize: "84px",
-          fontFamily: "Allegretto Script One, cursive",
-        }}
-      >
-        <p>
+      <Box>
+        <Typography
+          fontFamily={"Allegretto Script One, cursive"}
+          sx={{ fontSize: "100px" }}
+        >
           {props.content.coverSection.fianceName}
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </p>
-        <p>&</p>
-        <p style={{ lineHeight: "140px" }}>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </Typography>
+        <Typography
+          fontFamily={"Allegretto Script One, cursive"}
+          fontSize={"72px"}
+          margin={"-48px"}
+          paddingLeft={"100px"}
+        >
+          &
+        </Typography>
+        <Typography
+          fontFamily={"Allegretto Script One, cursive"}
+          sx={{ fontSize: "100px" }}
+        >
           {props.content.coverSection.fianceeName}
-        </p>
+        </Typography>
       </Box>
       <Box>
         <Typography fontSize={36} fontWeight={100}>

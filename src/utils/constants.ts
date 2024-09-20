@@ -14,6 +14,10 @@ export const Contents: { [key: string]: Content } = {
     },
     timingSection: {
       title: "Тайминг",
+      daysLabel: "День",
+      hoursLabel: "Час",
+      minutesLabel: "Минута",
+      secondsLabel: "Секунда",
     },
     locationSection: {
       title: "Локация",
@@ -48,6 +52,10 @@ export const Contents: { [key: string]: Content } = {
     },
     timingSection: {
       title: "Timing",
+      daysLabel: "Zile",
+      hoursLabel: "Ore",
+      minutesLabel: "Minute",
+      secondsLabel: "Secunde",
     },
     locationSection: {
       title: "Locaţie",

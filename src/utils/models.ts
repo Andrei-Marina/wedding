@@ -10,6 +10,10 @@ export interface Content {
   };
   timingSection: {
     title: string;
+    daysLabel: string;
+    hoursLabel: string;
+    minutesLabel: string;
+    secondsLabel: string;
   };
   locationSection: {
     title: string;
