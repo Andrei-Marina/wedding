@@ -178,12 +178,6 @@ const DetailsSection = (props: DetailsSectionProps) => {
                 </ListItemIcon>
                 <ListItemText primary="Просим подтвердить своё присутствие на торжестве до 1 июля 2025 года." />
               </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <Circle sx={{ color: "#947F6E" }} />
-                </ListItemIcon>
-                <ListItemText primary="Заезжайте со стороны трассы." />
-              </ListItem>
             </List>
           </Grid2>
           <Grid2 size={{ xs: 12, md: 6 }} padding={5}>
