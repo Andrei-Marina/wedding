@@ -84,7 +84,7 @@ function App() {
                 <CoverSection content={content} />
               </Grid2>
               <Grid2
-                height={windowSize.height}
+                minHeight={windowSize.height}
                 size={{ xs: 12, md: 3 }}
                 sx={{
                   bgcolor: "rgba(255,255,255,0.4)",
@@ -98,7 +98,7 @@ function App() {
                 <WelcomeSection content={content} />
               </Grid2>
               <Grid2
-                height={windowSize.height}
+                minHeight={windowSize.height}
                 size={{ xs: 12, md: 6 }}
                 sx={{ bgcolor: "rgba(255,255,255,0.4)", paddingTop: 5 }}
               >
@@ -115,7 +115,7 @@ function App() {
                 <></>
               )}
               <Grid2
-                height={windowSize.height}
+                minHeight={windowSize.height}
                 size={{ xs: 12, md: 3 }}
                 sx={{
                   bgcolor: "rgba(255,255,255,0.4)",
@@ -144,7 +144,7 @@ function App() {
                 <></>
               )}
               <Grid2
-                height={windowSize.height}
+                minHeight={windowSize.height}
                 size={{ xs: 12, md: 12 }}
                 sx={{
                   bgcolor: "rgba(255,255,255,0.4)",

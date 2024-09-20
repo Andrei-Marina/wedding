@@ -6,6 +6,11 @@ import {
   FormControlLabel,
   FormGroup,
   FormLabel,
+  Grid2,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
   Radio,
   RadioGroup,
   TextField,
@@ -18,6 +23,7 @@ import { useEffect, useState } from "react";
 import { auth, db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { Circle } from "@mui/icons-material";
 
 interface DetailsSectionProps {
   content: Content;
@@ -151,138 +157,181 @@ const DetailsSection = (props: DetailsSectionProps) => {
         {props.content.detailsSection.title}
       </Typography>
       <Box height={"90%"} width={"100%"}>
-        <form onSubmit={handleSubmit}>
-          <FormGroup sx={{ width: "100%" }}>
-            <CustomTextField
-              id="standard-basic"
-              label={props.content.detailsSection.nameFormLabel}
-              variant="standard"
-              value={guest.guestName}
-              onChange={(e) =>
-                setGuest({ ...guest, guestName: e.target.value })
-              }
-              fullWidth
-              autoComplete="off"
-            />
-            <CustomFormControlLabel
-              sx={{
-                marginTop: 2,
-              }}
-              required={false}
-              control={
-                <CustomCheckbox
+        <Grid2 container>
+          <Grid2 size={{ xs: 12, md: 6 }} padding={5}>
+            <List dense>
+              <ListItem>
+                <ListItemIcon>
+                  <Circle sx={{ color: "#947F6E" }} />
+                </ListItemIcon>
+                <ListItemText primary="Приятным комплиментом для нас будет, если вместо цветов вы решите подарить нам бутылочку вашего любимого алкоголя, которую мы откроем на ближайшем совместном празднике." />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Circle sx={{ color: "#947F6E" }} />
+                </ListItemIcon>
+                <ListItemText primary="Захватите с собой удобною обувь для танцев!" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Circle sx={{ color: "#947F6E" }} />
+                </ListItemIcon>
+                <ListItemText primary="Просим подтвердить своё присутствие на торжестве до 1 июля 2025 года." />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Circle sx={{ color: "#947F6E" }} />
+                </ListItemIcon>
+                <ListItemText primary="Заезжайте со стороны трассы." />
+              </ListItem>
+            </List>
+          </Grid2>
+          <Grid2 size={{ xs: 12, md: 6 }} padding={5}>
+            <form onSubmit={handleSubmit}>
+              <FormGroup sx={{ width: "100%" }}>
+                <CustomTextField
+                  id="standard-basic"
+                  label={props.content.detailsSection.nameFormLabel}
+                  variant="standard"
+                  value={guest.guestName}
+                  onChange={(e) =>
+                    setGuest({ ...guest, guestName: e.target.value })
+                  }
+                  fullWidth
+                  autoComplete="off"
+                />
+                <CustomFormControlLabel
+                  sx={{
+                    marginTop: 2,
+                  }}
                   required={false}
-                  checked={hasPartner}
-                  onChange={(event) => setHasPartner(event.target.checked)}
-                />
-              }
-              label={props.content.detailsSection.partnerCheckboxLabel}
-            />
-            <CustomTextField
-              id="standard-basic"
-              label={props.content.detailsSection.partnerFormLabel}
-              variant="standard"
-              fullWidth
-              disabled={!hasPartner}
-              value={guest.partnerName}
-              onChange={(e) =>
-                setGuest({ ...guest, partnerName: e.target.value })
-              }
-              autoComplete="off"
-            />
-            <FormControl sx={{ alignItems: "flex-start", marginTop: 3 }}>
-              <FormLabel
-                id="presence-form-label"
-                sx={{ color: "#947F6E !important" }}
-              >
-                {props.content.detailsSection.presenceFormLabel}
-              </FormLabel>
-              <RadioGroup
-                aria-labelledby="presence-radio-buttons-group"
-                name="presence-radio-buttons-group"
-                value={guest.presense}
-                onChange={(e) => {
-                  setGuest({ ...guest, presense: parseInt(e.target.value) });
-                }}
-              >
-                <CustomFormControlLabel
-                  value={1}
-                  control={<CustomRadio />}
-                  label={props.content.detailsSection.presenceFormValue1}
-                />
-                <CustomFormControlLabel
-                  value={2}
-                  control={<CustomRadio />}
-                  label={props.content.detailsSection.presenceFormValue2}
-                />
-                <CustomFormControlLabel
-                  value={3}
-                  control={<CustomRadio />}
-                  label={props.content.detailsSection.presenceFormValue3}
-                />
-              </RadioGroup>
-            </FormControl>
-            <FormControl sx={{ alignItems: "flex-start", marginTop: 3 }}>
-              <FormLabel
-                id="preferences-form-label"
-                sx={{ color: "#947F6E !important" }}
-              >
-                {props.content.detailsSection.preferencesFormLabel}
-              </FormLabel>
-              <FormGroup>
-                <CustomFormControlLabel
                   control={
                     <CustomCheckbox
-                      checked={guest.preferences.includes(1)}
-                      onChange={(event) => handlePreferencesChange(event, 1)}
-                      name={props.content.detailsSection.drinksOption1}
+                      required={false}
+                      checked={hasPartner}
+                      onChange={(event) => setHasPartner(event.target.checked)}
                     />
                   }
-                  label={props.content.detailsSection.drinksOption1}
+                  label={props.content.detailsSection.partnerCheckboxLabel}
                 />
-                <CustomFormControlLabel
-                  control={
-                    <CustomCheckbox
-                      checked={guest.preferences.includes(2)}
-                      onChange={(event) => handlePreferencesChange(event, 2)}
-                      name={props.content.detailsSection.drinksOption1}
-                    />
+                <CustomTextField
+                  id="standard-basic"
+                  label={props.content.detailsSection.partnerFormLabel}
+                  variant="standard"
+                  fullWidth
+                  disabled={!hasPartner}
+                  value={guest.partnerName}
+                  onChange={(e) =>
+                    setGuest({ ...guest, partnerName: e.target.value })
                   }
-                  label={props.content.detailsSection.drinksOption2}
+                  autoComplete="off"
                 />
-                <CustomFormControlLabel
-                  control={
-                    <CustomCheckbox
-                      checked={guest.preferences.includes(3)}
-                      onChange={(event) => handlePreferencesChange(event, 3)}
-                      name={props.content.detailsSection.drinksOption3}
+                <FormControl sx={{ alignItems: "flex-start", marginTop: 3 }}>
+                  <FormLabel
+                    id="presence-form-label"
+                    sx={{ color: "#947F6E !important" }}
+                  >
+                    {props.content.detailsSection.presenceFormLabel}
+                  </FormLabel>
+                  <RadioGroup
+                    aria-labelledby="presence-radio-buttons-group"
+                    name="presence-radio-buttons-group"
+                    value={guest.presense}
+                    onChange={(e) => {
+                      setGuest({
+                        ...guest,
+                        presense: parseInt(e.target.value),
+                      });
+                    }}
+                  >
+                    <CustomFormControlLabel
+                      value={1}
+                      control={<CustomRadio />}
+                      label={props.content.detailsSection.presenceFormValue1}
                     />
-                  }
-                  label={props.content.detailsSection.drinksOption3}
-                />
-                <CustomFormControlLabel
-                  control={
-                    <CustomCheckbox
-                      checked={guest.preferences.includes(4)}
-                      onChange={(event) => handlePreferencesChange(event, 4)}
-                      name={props.content.detailsSection.drinksOption4}
+                    <CustomFormControlLabel
+                      value={2}
+                      control={<CustomRadio />}
+                      label={props.content.detailsSection.presenceFormValue2}
                     />
-                  }
-                  label={props.content.detailsSection.drinksOption4}
-                />
+                    <CustomFormControlLabel
+                      value={3}
+                      control={<CustomRadio />}
+                      label={props.content.detailsSection.presenceFormValue3}
+                    />
+                  </RadioGroup>
+                </FormControl>
+                <FormControl sx={{ alignItems: "flex-start", marginTop: 3 }}>
+                  <FormLabel
+                    id="preferences-form-label"
+                    sx={{ color: "#947F6E !important" }}
+                  >
+                    {props.content.detailsSection.preferencesFormLabel}
+                  </FormLabel>
+                  <FormGroup>
+                    <CustomFormControlLabel
+                      control={
+                        <CustomCheckbox
+                          checked={guest.preferences.includes(1)}
+                          onChange={(event) =>
+                            handlePreferencesChange(event, 1)
+                          }
+                          name={props.content.detailsSection.drinksOption1}
+                        />
+                      }
+                      label={props.content.detailsSection.drinksOption1}
+                    />
+                    <CustomFormControlLabel
+                      control={
+                        <CustomCheckbox
+                          checked={guest.preferences.includes(2)}
+                          onChange={(event) =>
+                            handlePreferencesChange(event, 2)
+                          }
+                          name={props.content.detailsSection.drinksOption1}
+                        />
+                      }
+                      label={props.content.detailsSection.drinksOption2}
+                    />
+                    <CustomFormControlLabel
+                      control={
+                        <CustomCheckbox
+                          checked={guest.preferences.includes(3)}
+                          onChange={(event) =>
+                            handlePreferencesChange(event, 3)
+                          }
+                          name={props.content.detailsSection.drinksOption3}
+                        />
+                      }
+                      label={props.content.detailsSection.drinksOption3}
+                    />
+                    <CustomFormControlLabel
+                      control={
+                        <CustomCheckbox
+                          checked={guest.preferences.includes(4)}
+                          onChange={(event) =>
+                            handlePreferencesChange(event, 4)
+                          }
+                          name={props.content.detailsSection.drinksOption4}
+                        />
+                      }
+                      label={props.content.detailsSection.drinksOption4}
+                    />
+                  </FormGroup>
+                </FormControl>
+                <Button
+                  sx={{ marginTop: 5, bgcolor: "#947F6E" }}
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  disabled={!guest.guestName || !guest.presense}
+                >
+                  {props.content.detailsSection.submitButton}
+                </Button>
               </FormGroup>
-            </FormControl>
-            <Button
-              sx={{ marginTop: 5, bgcolor: "#947F6E" }}
-              type="submit"
-              variant="contained"
-              color="primary"
-              disabled={!guest.guestName || !guest.presense}
-            >
-              {props.content.detailsSection.submitButton}
-            </Button>
-          </FormGroup>
-        </form>
+            </form>
+          </Grid2>
+        </Grid2>
       </Box>
     </>
   );

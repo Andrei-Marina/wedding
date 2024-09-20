@@ -18,7 +18,9 @@ const welcomeSection = (props: WelcomeSectionProps) => {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        <Typography>{props.content.welcomeSection.content}</Typography>
+        <Typography textAlign={"justify"}>
+          {props.content.welcomeSection.content}
+        </Typography>
       </Box>
     </>
   );
