@@ -155,7 +155,7 @@ const DetailsSection = (props: DetailsSectionProps) => {
     <Section
       title={props.content.detailsSection.title}
       children={
-        <Box height={"90%"} width={"100%"}>
+        <Box height={"90%"} width={"100%"} marginBottom={"40px "}>
           <Grid2 container>
             <Grid2 size={{ xs: 12, md: 6 }}>
               <List dense>
@@ -235,7 +235,7 @@ const DetailsSection = (props: DetailsSectionProps) => {
                       {props.content.detailsSection.presencesOptions.map(
                         (option, index) => (
                           <CustomFormControlLabel
-                            value={index}
+                            value={index + 1}
                             control={<CustomRadio />}
                             label={option}
                           />
@@ -256,9 +256,9 @@ const DetailsSection = (props: DetailsSectionProps) => {
                           <CustomFormControlLabel
                             control={
                               <CustomCheckbox
-                                checked={guest.preferences.includes(index)}
+                                checked={guest.preferences.includes(index + 1)}
                                 onChange={(event) =>
-                                  handlePreferencesChange(event, index)
+                                  handlePreferencesChange(event, index + 1)
                                 }
                                 name={option}
                               />
