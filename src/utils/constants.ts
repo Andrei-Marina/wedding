@@ -24,6 +24,7 @@ export const Contents: { [key: string]: Content } = {
       guestCelebrationLabel: "Поздравления гостей",
       fotosessionLabel: "Фотосессия",
       begginingLabel: "Начало праздника",
+      countdownLablel: "До этого дня осталось",
     },
     locationSection: {
       title: "Локация",
@@ -75,6 +76,7 @@ export const Contents: { [key: string]: Content } = {
       guestCelebrationLabel: "Felicitările din partea oaspeților",
       fotosessionLabel: "Ședința foto cu mirii",
       begginingLabel: "Începutul petrecerii",
+      countdownLablel: "Au mai rămas",
     },
     locationSection: {
       title: "Locaţie",

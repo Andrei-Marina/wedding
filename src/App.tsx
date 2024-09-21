@@ -102,18 +102,8 @@ function App() {
                 size={{ xs: 12, md: 6 }}
                 sx={{ bgcolor: "rgba(255,255,255,0.4)", paddingTop: 5 }}
               >
-                <TimingSection content={content} />
+                <TimingSection content={content} isMd={isMd} />
               </Grid2>
-              {isMd ? (
-                <Grid2 size={{ xs: 12 }}>
-                  <CountdownTimer
-                    targetDate={new Date("2025-07-24 18:00")}
-                    content={content}
-                  />
-                </Grid2>
-              ) : (
-                <></>
-              )}
               <Grid2
                 minHeight={windowSize.height}
                 size={{ xs: 12, md: 3 }}

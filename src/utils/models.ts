@@ -20,6 +20,7 @@ export interface Content {
     guestCelebrationLabel: string;
     fotosessionLabel: string;
     begginingLabel: string;
+    countdownLablel: string;
   };
   locationSection: {
     title: string;

@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers";
-import { Section } from ".";
+import { CountdownTimer, Section } from ".";
 import { ReactComponent as Rings } from "../rings.svg";
 import { ReactComponent as Flowers } from "../flowers.svg";
 import { ReactComponent as Glass } from "../glass.svg";
@@ -16,6 +16,7 @@ import { ReactComponent as Plate } from "../plate.svg";
 
 interface TimingSectionProps {
   content: Content;
+  isMd: boolean;
 }
 
 const CustomCalendarHeader = () => {
@@ -59,6 +60,7 @@ const TimingSection = (props: TimingSectionProps) => {
                 defaultValue={dayjs(date)}
                 slots={{ calendarHeader: CustomCalendarHeader }}
                 sx={{
+                  height: "unset",
                   "& .Mui-selected": {
                     bgcolor: "#947F6E !important",
                     opacity: "unset !important",
@@ -70,6 +72,19 @@ const TimingSection = (props: TimingSectionProps) => {
               />
             </LocalizationProvider>
           </Box>
+          {props.isMd ? (
+            <Box sx={{ marginBottom: "40px" }}>
+              <Typography>
+                {props.content.timingSection.countdownLablel}
+              </Typography>
+              <CountdownTimer
+                targetDate={new Date("2025-07-24 18:00")}
+                content={props.content}
+              />
+            </Box>
+          ) : (
+            <></>
+          )}
           <Box marginBottom={"100px"}>
             <Box>
               <VerticalLine height={verticalLineHeight} />
