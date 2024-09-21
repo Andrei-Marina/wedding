@@ -1,14 +1,21 @@
 {
   "files": {
-    "main.css": "/wedding/static/css/main.1bda0938.css",
-    "main.js": "/wedding/static/js/main.346d17ac.js",
+    "main.css": "/wedding/static/css/main.e70fa6fc.css",
+    "main.js": "/wedding/static/js/main.c7732160.js",
     "static/media/allegrettoScriptOne.ttf": "/wedding/static/media/allegrettoScriptOne.30e18443cb980fcf2aa7.ttf",
+    "static/media/plate.svg": "/wedding/static/media/plate.8f1fd9806408e040a4e12aaae990f657.svg",
+    "static/media/car.svg": "/wedding/static/media/car.16f2501258a81bc454678b36071b5e5b.svg",
+    "static/media/rings.svg": "/wedding/static/media/rings.66fde0f7c35a39bc36163657666b9e71.svg",
+    "static/media/flowers.svg": "/wedding/static/media/flowers.109499b3ac0a067ab8a455b727f43c32.svg",
+    "static/media/glass.svg": "/wedding/static/media/glass.652445a5b57327cbb635182c98960c18.svg",
+    "static/media/photo.svg": "/wedding/static/media/photo.c24b81ff7d703dc7725b3ccd0755658a.svg",
+    "static/media/eternity.svg": "/wedding/static/media/eternity.70a0579768afcbafe361be37d0f756d3.svg",
     "index.html": "/wedding/index.html",
-    "main.1bda0938.css.map": "/wedding/static/css/main.1bda0938.css.map",
-    "main.346d17ac.js.map": "/wedding/static/js/main.346d17ac.js.map"
+    "main.e70fa6fc.css.map": "/wedding/static/css/main.e70fa6fc.css.map",
+    "main.c7732160.js.map": "/wedding/static/js/main.c7732160.js.map"
   },
   "entrypoints": [
-    "static/css/main.1bda0938.css",
-    "static/js/main.346d17ac.js"
+    "static/css/main.e70fa6fc.css",
+    "static/js/main.c7732160.js"
   ]
 }
