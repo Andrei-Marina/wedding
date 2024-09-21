@@ -36,7 +36,7 @@ const LocationSection = (props: LocationSectionProps) => {
             <Typography fontSize={"24px"}>
               {props.content.locationSection.routeHintLabel}
             </Typography>
-            <Typography marginTop={2}>
+            <Typography marginTop={2} textAlign={"justify"}>
               {props.content.locationSection.routeHint}
             </Typography>
           </Box>

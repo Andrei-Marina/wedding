@@ -16,8 +16,8 @@ export const Contents: { [key: string]: Content } = {
       title: "Тайминг",
       daysLabel: "День",
       hoursLabel: "Час",
-      minutesLabel: "Минута",
-      secondsLabel: "Секунда",
+      minutesLabel: "Минут",
+      secondsLabel: "Секунд",
       guestInvitationLabel: "Сбор гостей",
       furshetLabel: "Фуршет",
       ceremonyLabel: "Свадебная церемония",
@@ -30,7 +30,7 @@ export const Contents: { [key: string]: Content } = {
       title: "Локация",
       routeHintLabel: "Указания по маршруту",
       routeHint:
-        "Следуйте по трассе R3, не поворачивая в Яловены. Продолжайте движение до села Пожэрень, где сможете свернуть с трассы и доехать до Костешты.",
+        "Следуйте по трассе R3, не поворачивая в Яловены. Продолжайте движение до села Пожэрень, где сможете свернуть с трассы налево и доехать до Костешты.",
     },
     detailsSection: {
       title: "Детали",
@@ -62,7 +62,7 @@ export const Contents: { [key: string]: Content } = {
     welcomeSection: {
       title: "Dragi oaspeți!",
       content:
-        "\tCu o bucurie imensă vă invităm la sărbătoarea noastră de nuntă, care va fi cel mai important și semnificativ eveniment din viața noastră. În această zi ne vom jura unul altuia iubire și fidelitate, și ne-ar plăcea foarte mult să fiți alături de noi pentru a împărtăși acest moment magic.\n\n\tApreciem prezența voastră în viața noastră și vom fi fericiți dacă veți putea împărtăși cu noi bucuria, râsul și amintirile fericite în această zi de neuitat.\n\n\tAșteptăm cu nerăbdare să ne întâlnim și sperăm că această sărbătoare va fi specială nu doar pentru noi, ci și pentru voi.",
+        "\tCu o bucurie imensă vă invităm la nunta noastră, care va fi cel mai important și semnificativ eveniment din viața noastră. În această zi ne vom jura unul altuia iubire și fidelitate, și ne-ar plăcea foarte mult să fiți alături de noi pentru a împărtăși acest moment magic.\n\n\tApreciem prezența voastră în viața noastră și vom fi fericiți dacă veți putea împărtăși cu noi bucuria, râsul și amintirile fericite în această zi de neuitat.\n\n\tAșteptăm cu nerăbdare să ne întâlnim și sperăm că această sărbătoare va fi specială nu doar pentru noi, ci și pentru voi.",
     },
     timingSection: {
       title: "Timing",

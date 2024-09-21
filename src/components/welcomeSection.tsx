@@ -4,7 +4,6 @@ import { Section } from ".";
 
 interface WelcomeSectionProps {
   content: Content;
-  isMd: boolean;
 }
 
 const welcomeSection = (props: WelcomeSectionProps) => {
@@ -20,7 +19,6 @@ const welcomeSection = (props: WelcomeSectionProps) => {
           alignItems={"center"}
         >
           <Typography
-            textAlign={props.isMd ? "unset" : "justify"}
             sx={{ whiteSpace: "pre-wrap" }}
           >
             {props.content.welcomeSection.content}

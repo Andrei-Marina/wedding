@@ -44,11 +44,22 @@ function App() {
       });
     };
 
+    const preventScroll = (e: any) => {
+      if (e.touches.length > 1) {
+        // To prevent horizontal scroll when using two fingers
+        e.preventDefault();
+      }
+    };
+
     // Add event listener to track window resize
     window.addEventListener("resize", handleResize);
+    window.addEventListener("touchmove", preventScroll, { passive: false });
 
     // Cleanup the event listener when component unmounts
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -95,7 +106,7 @@ function App() {
                   padding: 5,
                 }}
               >
-                <WelcomeSection content={content} isMd={isMd} />
+                <WelcomeSection content={content} />
               </Grid2>
               <Grid2
                 minHeight={windowSize.height}
