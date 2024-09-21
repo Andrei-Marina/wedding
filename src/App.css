@@ -33,3 +33,28 @@ p {
 ::-webkit-scrollbar {
   width: 0px; /* Width of the scrollbar */
 }
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Initially hidden */
+.section-header {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+/* When in view, apply the animation */
+.section-header.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 5s ease forwards;
+}

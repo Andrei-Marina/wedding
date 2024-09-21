@@ -10,7 +10,7 @@ export const Contents: { [key: string]: Content } = {
     welcomeSection: {
       title: "Дорогие гости!",
       content:
-        "С радостью приглашаем вас разделить с нами особенный день — день нашей свадьбы! Мы будем счастливы видеть вас среди наших самых близких, чтобы отпраздновать этот незабываемый момент вместе.",
+        "\tС огромной радостью приглашаем вас на наш свадебный праздник, который станет для нас важнейшим и самым значимым событием в жизни. В этот день мы будем клясться друг другу в любви и верности, и нам бы очень хотелось, чтобы вы были рядом и разделили с нами этот волшебный момент.\n\n\tМы ценим ваше присутствие в нашей жизни и будем счастливы, если вы сможете разделить с нами радость, смех и счастливые воспоминания в этот незабываемый день.\n\n\tС нетерпением ждем встречи и надеемся, что этот праздник станет особенным не только для нас, но и для вас.",
     },
     timingSection: {
       title: "Тайминг",
@@ -18,9 +18,18 @@ export const Contents: { [key: string]: Content } = {
       hoursLabel: "Час",
       minutesLabel: "Минута",
       secondsLabel: "Секунда",
+      guestInvitationLabel: "Сбор гостей",
+      furshetLabel: "Фуршет",
+      ceremonyLabel: "Свадебная церемония",
+      guestCelebrationLabel: "Поздравления гостей",
+      fotosessionLabel: "Фотосессия",
+      begginingLabel: "Начало праздника",
     },
     locationSection: {
       title: "Локация",
+      routeHintLabel: "Указания по маршруту",
+      routeHint:
+        "Следуйте по трассе R3, не поворачивая в Яловены. Продолжайте движение до села Пожэрень, где сможете свернуть с трассы и доехать до Костешты.",
     },
     detailsSection: {
       title: "Детали",
@@ -52,7 +61,7 @@ export const Contents: { [key: string]: Content } = {
     welcomeSection: {
       title: "Dragi oaspeți!",
       content:
-        "Vă invităm cu plăcere să împărtășiți cu noi ziua noastră specială - ziua nunții noastre! Vom fi bucuroși să vă avem printre cei mai apropiați pentru a sărbători împreună acest moment de neuitat.",
+        "\tCu o bucurie imensă vă invităm la sărbătoarea noastră de nuntă, care va fi cel mai important și semnificativ eveniment din viața noastră. În această zi ne vom jura unul altuia iubire și fidelitate, și ne-ar plăcea foarte mult să fiți alături de noi pentru a împărtăși acest moment magic.\n\n\tApreciem prezența voastră în viața noastră și vom fi fericiți dacă veți putea împărtăși cu noi bucuria, râsul și amintirile fericite în această zi de neuitat.\n\n\tAșteptăm cu nerăbdare să ne întâlnim și sperăm că această sărbătoare va fi specială nu doar pentru noi, ci și pentru voi.",
     },
     timingSection: {
       title: "Timing",
@@ -60,9 +69,18 @@ export const Contents: { [key: string]: Content } = {
       hoursLabel: "Ore",
       minutesLabel: "Minute",
       secondsLabel: "Secunde",
+      guestInvitationLabel: "Sosirea oaspeților",
+      furshetLabel: "Servirea aperitivului",
+      ceremonyLabel: "Ora ceremoniei",
+      guestCelebrationLabel: "Felicitările din partea oaspeților",
+      fotosessionLabel: "Ședința foto cu mirii",
+      begginingLabel: "Începutul petrecerii",
     },
     locationSection: {
       title: "Locaţie",
+      routeHintLabel: "Indicații de traseu",
+      routeHint:
+        "Urmați traseul R3, fără a vira spre Ialoveni. Continuați deplasarea până în satul Pojăreni, unde puteți vira la stânga pentru a ajunge în Costești.",
     },
     detailsSection: {
       title: "Detalii",

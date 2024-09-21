@@ -95,7 +95,7 @@ function App() {
                   padding: 5,
                 }}
               >
-                <WelcomeSection content={content} />
+                <WelcomeSection content={content} isMd={isMd} />
               </Grid2>
               <Grid2
                 minHeight={windowSize.height}

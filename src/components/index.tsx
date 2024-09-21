@@ -5,3 +5,4 @@ export { default as WelcomeSection } from "./welcomeSection";
 export { default as TimingSection } from "./timingSection";
 export { default as LocationSection } from "./locationSection";
 export { default as CountdownTimer } from "./countdownTimer";
+export { default as Section } from "./section";

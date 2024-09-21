@@ -1,28 +1,33 @@
 import { Box, Typography } from "@mui/material";
 import { Content } from "../utils/models";
+import { Section } from ".";
 
 interface WelcomeSectionProps {
   content: Content;
+  isMd: boolean;
 }
 
 const welcomeSection = (props: WelcomeSectionProps) => {
   return (
-    <>
-      <Typography fontSize={36} fontWeight={300}>
-        {props.content.welcomeSection.title}
-      </Typography>
-      <Box
-        height={"90%"}
-        display={"flex"}
-        flexDirection={"column"}
-        justifyContent={"center"}
-        alignItems={"center"}
-      >
-        <Typography textAlign={"justify"}>
-          {props.content.welcomeSection.content}
-        </Typography>
-      </Box>
-    </>
+    <Section
+      title={props.content.welcomeSection.title}
+      children={
+        <Box
+          height={"90%"}
+          display={"flex"}
+          flexDirection={"column"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Typography
+            textAlign={props.isMd ? "unset" : "justify"}
+            sx={{ whiteSpace: "pre-wrap" }}
+          >
+            {props.content.welcomeSection.content}
+          </Typography>
+        </Box>
+      }
+    />
   );
 };
 export default welcomeSection;

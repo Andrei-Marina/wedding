@@ -14,9 +14,17 @@ export interface Content {
     hoursLabel: string;
     minutesLabel: string;
     secondsLabel: string;
+    guestInvitationLabel: string;
+    furshetLabel: string;
+    ceremonyLabel: string;
+    guestCelebrationLabel: string;
+    fotosessionLabel: string;
+    begginingLabel: string;
   };
   locationSection: {
     title: string;
+    routeHintLabel: string;
+    routeHint: string;
   };
   detailsSection: {
     title: string;

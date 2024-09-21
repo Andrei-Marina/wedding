@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { Content } from "../utils/models";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { Section } from ".";
 
 interface LocationSectionProps {
   content: Content;
@@ -20,20 +21,28 @@ const LocationSection = (props: LocationSectionProps) => {
   };
 
   return (
-    <>
-      <Typography fontSize={36} fontWeight={300}>
-        {props.content.locationSection.title}
-      </Typography>
-      <Box height={"90%"} width={"100%"}>
-        <LoadScript googleMapsApiKey={props.apiKey} id="google-maps-script">
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={14}
-          ></GoogleMap>
-        </LoadScript>
-      </Box>
-    </>
+    <Section
+      title={props.content.locationSection.title}
+      children={
+        <>
+          <LoadScript googleMapsApiKey={props.apiKey} id="google-maps-script">
+            <GoogleMap
+              mapContainerStyle={containerStyle}
+              center={center}
+              zoom={14}
+            ></GoogleMap>
+          </LoadScript>
+          <Box marginTop={5}>
+            <Typography fontSize={"24px"}>
+              {props.content.locationSection.routeHintLabel}
+            </Typography>
+            <Typography marginTop={2}>
+              {props.content.locationSection.routeHint}
+            </Typography>
+          </Box>
+        </>
+      }
+    />
   );
 };
 
