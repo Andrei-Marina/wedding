@@ -24,14 +24,10 @@ export interface Content {
     partnerCheckboxLabel: string;
     partnerFormLabel: string;
     presenceFormLabel: string;
-    presenceFormValue1: string;
-    presenceFormValue2: string;
-    presenceFormValue3: string;
-    preferencesFormLabel: string;
-    drinksOption1: string;
-    drinksOption2: string;
-    drinksOption3: string;
-    drinksOption4: string;
+    presencesOptions: string[];
+    drinksFormLabel: string;
+    drinksOptions: string[];
+    details: string[];
     submitButton: string;
   };
 }

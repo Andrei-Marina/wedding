@@ -160,24 +160,14 @@ const DetailsSection = (props: DetailsSectionProps) => {
         <Grid2 container>
           <Grid2 size={{ xs: 12, md: 6 }} padding={5}>
             <List dense>
-              <ListItem>
-                <ListItemIcon>
-                  <Circle sx={{ color: "#947F6E" }} />
-                </ListItemIcon>
-                <ListItemText primary="Приятным комплиментом для нас будет, если вместо цветов вы решите подарить нам бутылочку вашего любимого алкоголя, которую мы откроем на ближайшем совместном празднике." />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <Circle sx={{ color: "#947F6E" }} />
-                </ListItemIcon>
-                <ListItemText primary="Захватите с собой удобною обувь для танцев!" />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <Circle sx={{ color: "#947F6E" }} />
-                </ListItemIcon>
-                <ListItemText primary="Просим подтвердить своё присутствие на торжестве до 1 июля 2025 года." />
-              </ListItem>
+              {props.content.detailsSection.details.map((item) => (
+                <ListItem>
+                  <ListItemIcon>
+                    <Circle sx={{ color: "#947F6E" }} />
+                  </ListItemIcon>
+                  <ListItemText primary={item} />
+                </ListItem>
+              ))}
             </List>
           </Grid2>
           <Grid2 size={{ xs: 12, md: 6 }} padding={5}>
@@ -238,21 +228,15 @@ const DetailsSection = (props: DetailsSectionProps) => {
                       });
                     }}
                   >
-                    <CustomFormControlLabel
-                      value={1}
-                      control={<CustomRadio />}
-                      label={props.content.detailsSection.presenceFormValue1}
-                    />
-                    <CustomFormControlLabel
-                      value={2}
-                      control={<CustomRadio />}
-                      label={props.content.detailsSection.presenceFormValue2}
-                    />
-                    <CustomFormControlLabel
-                      value={3}
-                      control={<CustomRadio />}
-                      label={props.content.detailsSection.presenceFormValue3}
-                    />
+                    {props.content.detailsSection.presencesOptions.map(
+                      (option, index) => (
+                        <CustomFormControlLabel
+                          value={index}
+                          control={<CustomRadio />}
+                          label={option}
+                        />
+                      )
+                    )}
                   </RadioGroup>
                 </FormControl>
                 <FormControl sx={{ alignItems: "flex-start", marginTop: 3 }}>
@@ -260,57 +244,25 @@ const DetailsSection = (props: DetailsSectionProps) => {
                     id="preferences-form-label"
                     sx={{ color: "#947F6E !important" }}
                   >
-                    {props.content.detailsSection.preferencesFormLabel}
+                    {props.content.detailsSection.drinksFormLabel}
                   </FormLabel>
                   <FormGroup>
-                    <CustomFormControlLabel
-                      control={
-                        <CustomCheckbox
-                          checked={guest.preferences.includes(1)}
-                          onChange={(event) =>
-                            handlePreferencesChange(event, 1)
+                    {props.content.detailsSection.drinksOptions.map(
+                      (option, index) => (
+                        <CustomFormControlLabel
+                          control={
+                            <CustomCheckbox
+                              checked={guest.preferences.includes(index)}
+                              onChange={(event) =>
+                                handlePreferencesChange(event, index)
+                              }
+                              name={option}
+                            />
                           }
-                          name={props.content.detailsSection.drinksOption1}
+                          label={option}
                         />
-                      }
-                      label={props.content.detailsSection.drinksOption1}
-                    />
-                    <CustomFormControlLabel
-                      control={
-                        <CustomCheckbox
-                          checked={guest.preferences.includes(2)}
-                          onChange={(event) =>
-                            handlePreferencesChange(event, 2)
-                          }
-                          name={props.content.detailsSection.drinksOption1}
-                        />
-                      }
-                      label={props.content.detailsSection.drinksOption2}
-                    />
-                    <CustomFormControlLabel
-                      control={
-                        <CustomCheckbox
-                          checked={guest.preferences.includes(3)}
-                          onChange={(event) =>
-                            handlePreferencesChange(event, 3)
-                          }
-                          name={props.content.detailsSection.drinksOption3}
-                        />
-                      }
-                      label={props.content.detailsSection.drinksOption3}
-                    />
-                    <CustomFormControlLabel
-                      control={
-                        <CustomCheckbox
-                          checked={guest.preferences.includes(4)}
-                          onChange={(event) =>
-                            handlePreferencesChange(event, 4)
-                          }
-                          name={props.content.detailsSection.drinksOption4}
-                        />
-                      }
-                      label={props.content.detailsSection.drinksOption4}
-                    />
+                      )
+                    )}
                   </FormGroup>
                 </FormControl>
                 <Button
