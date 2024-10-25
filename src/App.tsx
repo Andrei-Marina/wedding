@@ -160,6 +160,7 @@ function App() {
                   content={content}
                   apiUsername={process.env.REACT_APP_FIREBASE_API_USERNAME}
                   apiPassword={process.env.REACT_APP_FIREBASE_API_PASSWORD}
+                  isMd={isMd}
                 />
               </Grid2>
             </Grid2>

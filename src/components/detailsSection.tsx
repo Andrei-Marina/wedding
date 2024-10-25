@@ -29,6 +29,7 @@ interface DetailsSectionProps {
   content: Content;
   apiUsername: string;
   apiPassword: string;
+  isMd: boolean;
 }
 
 interface Guest {
@@ -183,7 +184,7 @@ const DetailsSection = (props: DetailsSectionProps) => {
                 ))}
               </List>
             </Grid2>
-            <Grid2 size={{ xs: 12, md: 6 }}>
+            <Grid2 size={{ xs: 12, md: 6 }} marginTop={props.isMd ? 5 : 0}>
               <form onSubmit={handleSubmit}>
                 <FormGroup sx={{ width: "100%" }}>
                   <CustomTextField
