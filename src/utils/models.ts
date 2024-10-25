@@ -35,6 +35,7 @@ export interface Content {
     presenceFormLabel: string;
     presencesOptions: string[];
     drinksFormLabel: string;
+    kidsFormLabel: string;
     drinksOptions: string[];
     details: string[];
     submitButton: string;

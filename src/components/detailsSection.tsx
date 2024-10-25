@@ -36,6 +36,7 @@ interface Guest {
   partnerName: string;
   presense: number;
   preferences: number[];
+  kids: number;
 }
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
@@ -102,9 +103,11 @@ const DetailsSection = (props: DetailsSectionProps) => {
     partnerName: "",
     presense: 0,
     preferences: [],
+    kids: 0,
   };
 
   const [hasPartner, setHasPartner] = useState(false);
+  const [hasKids, setHasKids] = useState(false);
   const [guest, setGuest] = useState<Guest>(defaultGuest);
 
   useEffect(() => {
@@ -120,6 +123,12 @@ const DetailsSection = (props: DetailsSectionProps) => {
 
     signInAutomatically();
   }, [props.apiPassword, props.apiUsername]);
+
+  useEffect(() => {
+    if (!hasKids) {
+      setGuest((item) => ({ ...item, kids: 0 }));
+    }
+  }, [hasKids, setGuest]);
 
   const handlePreferencesChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -143,11 +152,13 @@ const DetailsSection = (props: DetailsSectionProps) => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (guest.guestName && guest.presense) {
-      try {
-        await addDoc(collection(db, "guests"), guest);
-      } catch (err) {}
-
+      // try {
+      //   await addDoc(collection(db, "guests"), guest);
+      // } catch (err) {}
+      console.log(guest);
       setGuest(defaultGuest);
+      setHasKids(false);
+      setHasPartner(false);
     }
   };
 
@@ -214,6 +225,41 @@ const DetailsSection = (props: DetailsSectionProps) => {
                     }
                     autoComplete="off"
                   />
+                  <CustomFormControlLabel
+                    sx={{
+                      marginTop: 2,
+                    }}
+                    required={false}
+                    control={
+                      <CustomCheckbox
+                        required={false}
+                        checked={hasKids}
+                        onChange={(event) => setHasKids(event.target.checked)}
+                      />
+                    }
+                    label={props.content.detailsSection.kidsFormLabel}
+                  />
+                  <RadioGroup
+                    aria-labelledby="presence-radio-buttons-group"
+                    name="presence-radio-buttons-group"
+                    value={guest.kids}
+                    onChange={(e) => {
+                      setGuest({
+                        ...guest,
+                        kids: parseInt(e.target.value),
+                      });
+                    }}
+                    sx={{ flexDirection: "row" }}
+                  >
+                    {[1, 2, 3, 4, 5].map((option) => (
+                      <CustomFormControlLabel
+                        value={option}
+                        control={<CustomRadio />}
+                        label={option}
+                        disabled={!hasKids}
+                      />
+                    ))}
+                  </RadioGroup>
                   <FormControl sx={{ alignItems: "flex-start", marginTop: 3 }}>
                     <FormLabel
                       id="presence-form-label"
@@ -274,7 +320,12 @@ const DetailsSection = (props: DetailsSectionProps) => {
                     type="submit"
                     variant="contained"
                     color="primary"
-                    disabled={!guest.guestName || !guest.presense}
+                    disabled={
+                      !guest.guestName ||
+                      !guest.presense ||
+                      (hasPartner && !guest.partnerName) ||
+                      (hasKids && !guest.kids)
+                    }
                   >
                     {props.content.detailsSection.submitButton}
                   </Button>

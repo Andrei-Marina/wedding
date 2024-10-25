@@ -43,6 +43,7 @@ export const Contents: { [key: string]: Content } = {
         "К сожалению, нет",
         "Сообщу позже",
       ],
+      kidsFormLabel:'Будем с детьми',
       drinksFormLabel: "Предпочтения:",
       drinksOptions: ["Вино", "Шампанское", "Коньяк", "Водка"],
       submitButton: "Отправить",
@@ -94,6 +95,7 @@ export const Contents: { [key: string]: Content } = {
       drinksFormLabel: "Preferințe:",
       drinksOptions: ["Vin", "Vin spumant", "Coniac", "Vodka"],
       submitButton: "Trimite",
+      kidsFormLabel:'Vom fi cu copii',
       details: [
         "Un compliment plăcut pentru noi va fi dacă, în loc de flori, veți decide să ne oferiți o sticlă din vin pentru vinoteca noastră de familie.",
         "Nu uitați sa luați încălțăminte comodă pentru dansuri!",
