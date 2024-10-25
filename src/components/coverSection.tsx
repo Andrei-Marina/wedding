@@ -11,12 +11,14 @@ const CoverSection = (props: CoverSectionProps) => {
       <div></div>
       <Box>
         <Typography
+          color="#754e2f"
           fontFamily={"Allegretto Script One, cursive"}
           sx={{ fontSize: "100px" }}
         >
           {props.content.coverSection.fianceName}
         </Typography>
         <Typography
+          color="#754e2f"
           fontFamily={"Allegretto Script One, cursive"}
           fontSize={"72px"}
           margin={"-48px"}
@@ -25,6 +27,7 @@ const CoverSection = (props: CoverSectionProps) => {
           &
         </Typography>
         <Typography
+          color="#754e2f"
           fontFamily={"Allegretto Script One, cursive"}
           sx={{ fontSize: "100px" }}
         >
@@ -35,7 +38,7 @@ const CoverSection = (props: CoverSectionProps) => {
         <Typography fontSize={36} fontWeight={100}>
           {props.content.coverSection.month}
         </Typography>
-        <Typography fontSize={72} fontWeight={200}>
+        <Typography color="#754e2f" fontSize={72} fontWeight={300}>
           24
         </Typography>
         <Typography fontSize={36} fontWeight={100}>
