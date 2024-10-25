@@ -43,7 +43,7 @@ export const Contents: { [key: string]: Content } = {
         "К сожалению, нет",
         "Сообщу позже",
       ],
-      kidsFormLabel:'Будем с детьми',
+      kidsFormLabel: "Будем с детьми",
       drinksFormLabel: "Предпочтения:",
       drinksOptions: ["Вино", "Шампанское", "Коньяк", "Водка"],
       submitButton: "Отправить",
@@ -53,6 +53,7 @@ export const Contents: { [key: string]: Content } = {
         "Просим подтвердить своё присутствие на торжестве до 1 июля 2025 года.",
       ],
     },
+    postscript: "Будем рады вашему присутствию",
   },
   ro: {
     coverSection: {
@@ -95,12 +96,13 @@ export const Contents: { [key: string]: Content } = {
       drinksFormLabel: "Preferințe:",
       drinksOptions: ["Vin", "Vin spumant", "Coniac", "Vodka"],
       submitButton: "Trimite",
-      kidsFormLabel:'Vom fi cu copii',
+      kidsFormLabel: "Vom fi cu copii",
       details: [
         "Un compliment plăcut pentru noi va fi dacă, în loc de flori, veți decide să ne oferiți o sticlă din vin pentru vinoteca noastră de familie.",
         "Nu uitați sa luați încălțăminte comodă pentru dansuri!",
         "Vă rugăm să confirmați prezența Dumneavostră înainte de 1 iulie 2025.",
       ],
     },
+    postscript: "Va asteptam cu bucurie sa ne fiti alaturi",
   },
 };

@@ -40,4 +40,5 @@ export interface Content {
     details: string[];
     submitButton: string;
   };
+  postscript: string;
 }

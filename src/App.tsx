@@ -6,6 +6,7 @@ import {
   Box,
   Grid2,
   useMediaQuery,
+  Typography,
 } from "@mui/material";
 import { Content } from "./utils/models";
 import { Contents } from "./utils/constants";
@@ -162,6 +163,26 @@ function App() {
                   apiPassword={process.env.REACT_APP_FIREBASE_API_PASSWORD}
                   isMd={isMd}
                 />
+              </Grid2>
+              <Grid2
+                size={{ xs: 12, md: 12 }}
+                sx={{
+                  bgcolor: "rgba(255,255,255,0.4)",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                  padding: 5,
+                }}
+              >
+                <Typography
+                  fontSize={36}
+                  color="#754e2f"
+                  lineHeight={1}
+                  fontFamily={"Allegretto Script One, cursive"}
+                >
+                  {content.postscript}
+                </Typography>
               </Grid2>
             </Grid2>
           </Box>

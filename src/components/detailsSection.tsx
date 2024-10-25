@@ -153,10 +153,10 @@ const DetailsSection = (props: DetailsSectionProps) => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (guest.guestName && guest.presense) {
-      // try {
-      //   await addDoc(collection(db, "guests"), guest);
-      // } catch (err) {}
-      console.log(guest);
+      try {
+        await addDoc(collection(db, "guests"), guest);
+      } catch (err) {}
+
       setGuest(defaultGuest);
       setHasKids(false);
       setHasPartner(false);
