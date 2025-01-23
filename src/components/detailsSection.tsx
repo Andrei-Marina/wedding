@@ -158,7 +158,6 @@ const DetailsSection = (props: DetailsSectionProps) => {
 
   const sendNotification = async () => {
     const url = `https://api.telegram.org/bot${process.env.REACT_APP_TELEGRAM_CHAT_BOT_TOKEN}/sendMessage`;
-
     const message =
       `**${guest.guestName}** ${
         guest.partnerName ? `и **${guest.partnerName}**` : ""
@@ -389,12 +388,12 @@ const DetailsSection = (props: DetailsSectionProps) => {
                         type="submit"
                         variant="contained"
                         color="primary"
-                        // disabled={
-                        //   !guest.guestName ||
-                        //   !guest.presense ||
-                        //   (hasPartner && !guest.partnerName) ||
-                        //   (hasKids && !guest.kids)
-                        // }
+                        disabled={
+                          !guest.guestName ||
+                          !guest.presense ||
+                          (hasPartner && !guest.partnerName) ||
+                          (hasKids && !guest.kids)
+                        }
                       >
                         {props.content.detailsSection.submitButton}
                       </Button>
