@@ -187,7 +187,7 @@ const DetailsSection = (props: DetailsSectionProps) => {
         body: JSON.stringify({
           chat_id: process.env.REACT_APP_TELEGRAM_CHAT_ID,
           text: message,
-          parse_mode: "Markdown",
+          parse_mode: "Markdown"
         }),
       });
     } catch (error) {}
