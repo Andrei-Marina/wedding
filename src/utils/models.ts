@@ -39,6 +39,7 @@ export interface Content {
     drinksOptions: string[];
     details: string[];
     submitButton: string;
+    submitedConfirmation: string;
   };
   postscript: string;
 }

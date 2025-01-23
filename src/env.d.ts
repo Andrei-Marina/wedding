@@ -11,5 +11,7 @@ declare namespace NodeJS {
     REACT_APP_FIREBASE_APP_ID: string;
     REACT_APP_FIREBASE_API_USERNAME: string;
     REACT_APP_FIREBASE_API_PASSWORD: string;
+    REACT_APP_TELEGRAM_CHAT_BOT_TOKEN:string;
+    REACT_APP_TELEGRAM_CHAT_ID:string;
   }
 }
