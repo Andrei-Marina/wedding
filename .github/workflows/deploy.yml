@@ -37,6 +37,8 @@ jobs:
           echo "REACT_APP_FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> .env
           echo "REACT_APP_FIREBASE_API_USERNAME=${{ secrets.FIREBASE_API_USERNAME }}" >> .env
           echo "REACT_APP_FIREBASE_API_PASSWORD=${{ secrets.FIREBASE_API_PASSWORD }}" >> .env
+          echo "REACT_APP_TELEGRAM_CHAT_BOT_TOKEN=${{ secrets.TELEGRAM_CHAT_BOT_TOKEN }}" >> .env
+          echo "REACT_APP_TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}" >> .env
           npm run build
 
       - name: Deploy to GitHub Pages
